@@ -1,138 +1,393 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
+
 <head>
-<title>Fractal Pengu</title><style>
 
-body{
-margin:0;
-font-family:Arial;
-background:black;
-color:white;
-text-align:center;
-}
-
-/* NAVBAR */
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 30px;
-background:#0b0b0b;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:0 10px;
-}
-
-.logo{
-color:orange;
-font-weight:bold;
-font-size:20px;
-}
-
-/* HERO */
-
-.hero{
-padding:120px 20px;
-background:radial-gradient(circle at center,#1a0d00,#000);
-}
-
-.title{
-font-size:70px;
-font-weight:bold;
-background:linear-gradient(90deg,#ff8c00,#ffd700);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.subtitle{
-font-size:22px;
-color:#ccc;
-margin-top:10px;
-}
-
-/* <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Fractal Pengu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@500&family=Fredoka:wght@500&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
-font-family:Arial;
-background:#000;
+background:black;
 color:white;
+font-family:Fredoka;
 text-align:center;
 }
 
-nav{
+/* header */
+
+header{
+background:#ff7a00;
 padding:20px;
+font-family:Bangers;
+font-size:28px;
+letter-spacing:2px;
+animation:fade 2s;
 }
 
-nav a{
-color:#ffa500;
-text-decoration:none;
-font-size:20px;
-margin:10px;
+/* hero */
+
+.hero{
+padding:80px 20px;
 }
 
-.container{
-max-width:700px;
-margin:auto;
-padding:30px;
+.logo{
+width:220px;
+border-radius:50%;
+box-shadow:0 0 30px #ff7a00;
+animation:float 4s infinite ease-in-out;
 }
 
 h1{
-color:#ffa500;
-font-size:48px;
-}
-
-img{
-width:260px;
-border-radius:20px;
+font-family:Orbitron;
+font-size:60px;
+color:#ff7a00;
 margin:20px 0;
 }
 
-.bio{
+.tagline{
 font-size:18px;
-line-height:1.7;
-color:#ddd;
+opacity:0.9;
+}
+
+/* buttons */
+
+.buttons{
+margin-top:30px;
+}
+
+.buttons a{
+
+display:inline-block;
+
+background:#ff7a00;
+
+color:black;
+
+padding:14px 26px;
+
+margin:10px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+text-decoration:none;
+
+transition:0.3s;
+
+}
+
+.buttons a:hover{
+
+transform:scale(1.1);
+
+}
+
+/* tokenomics */
+
+.tokenomics{
+
+background:#111;
+
+padding:80px 20px;
+
+}
+
+.tokenomics h2{
+
+font-family:Bangers;
+
+color:#ff7a00;
+
+font-size:40px;
+
+}
+
+.box{
+
+display:inline-block;
+
+background:#ff7a00;
+
+color:black;
+
+padding:25px;
+
+margin:12px;
+
+border-radius:14px;
+
+width:180px;
+
+font-weight:bold;
+
+animation:fade 2s;
+
+}
+
+/* contract */
+
+.contract{
+
+padding:80px 20px;
+
+}
+
+input{
+
+padding:12px;
+
+border-radius:10px;
+
+border:none;
+
+width:320px;
+
+}
+
+.copybtn{
+
+background:#ff7a00;
+
+color:black;
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:10px;
+
+font-weight:bold;
+
+margin-left:10px;
+
+}
+
+/* community */
+
+.community{
+
+background:#111;
+
+padding:80px 20px;
+
+}
+
+.community h2{
+
+color:#ff7a00;
+
+font-family:Bangers;
+
+font-size:40px;
+
+}
+
+.community p{
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+/* footer */
+
+footer{
+
+padding:30px;
+
+opacity:0.6;
+
+}
+
+/* animations */
+
+@keyframes float{
+
+0%{transform:translateY(0)}
+
+50%{transform:translateY(-15px)}
+
+100%{transform:translateY(0)}
+
+}
+
+@keyframes fade{
+
+from{opacity:0}
+
+to{opacity:1}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<nav>
-<a href="tokenomics.html">Tokenomics</a>
-<a href="community.html">Community</a>
-</nav>
+<header>
 
-<div class="container">
+FRACTAL PENGU
 
-<h1>Fractal Pengu</h1>
+</header>
 
-<img src="pengu.png">
+<section class="hero">
 
-<div class="bio">
+<img src="pengu.png" class="logo">
 
-<p>Fractal Pengu is a community-driven meme project inspired by fractal patterns and crypto culture.</p>
+<h1>FPENGU</h1>
 
-<p>Born on the Solana blockchain, FPENGU represents creativity, decentralization, and meme power.</p>
+<p class="tagline">
 
-<p>Just like fractals repeating forever, the Pengu movement grows with every holder.</p>
+The fractal powered penguin of Solana 🐧
 
-<p>This is the beginning of the Fractal Meme Era.</p>
+</p>
+
+<div class="buttons">
+
+<a href="https://www.orca.so/">Buy on Orca</a>
+
+<a href="#">Dexscreener</a>
+
+<a href="https://t.me/fractal_pengu_official">Join Telegram</a>
+
+<a href="https://x.com/RoarWeb3">Follow on X</a>
 
 </div>
 
+</section>
+
+<section class="tokenomics">
+
+<h2>Tokenomics</h2>
+
+<div class="box">
+
+Name
+
+<br>
+
+Fractal Pengu
+
 </div>
+
+<div class="box">
+
+Ticker
+
+<br>
+
+FPENGU
+
+</div>
+
+<div class="box">
+
+Total Supply
+
+<br>
+
+300,000,000
+
+</div>
+
+<div class="box">
+
+Circulating
+
+<br>
+
+270,000,000
+
+</div>
+
+<div class="box">
+
+Vesting
+
+<br>
+
+30,000,000
+
+</div>
+
+<div class="box">
+
+Listed On
+
+<br>
+
+Orca + All DEX
+
+</div>
+
+</section>
+
+<section class="contract">
+
+<h2 style="color:#ff7a00">Contract Address</h2>
+
+<input id="ca" value="88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91">
+
+<button class="copybtn" onclick="copy()">Copy</button>
+
+</section>
+
+<section class="community">
+
+<h2>Community</h2>
+
+<p>
+
+Fractal Pengu is more than a meme — it is a movement built by the community.  
+Born from fractal patterns and infinite possibilities on the blockchain.  
+The penguins believe in creativity, chaos, and decentralized culture.  
+Every holder becomes part of the fractal story.  
+Built on Solana for speed, fun, and unstoppable memes.  
+No complicated promises, just pure meme energy.  
+The community drives the narrative forward every day.  
+Penguins together create waves across the crypto ocean.  
+A symbol of resilience, creativity, and collective belief.  
+Fractal Pengu is the beginning of something beautifully chaotic.
+
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Fractal Pengu
+
+</footer>
+
+<script>
+
+function copy(){
+
+var copyText=document.getElementById("ca")
+
+copyText.select()
+
+document.execCommand("copy")
+
+alert("Contract copied!")
+
+}
+
+</script>
 
 </body>
+
 </html>
