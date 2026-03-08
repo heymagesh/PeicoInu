@@ -17,6 +17,7 @@ background:black;
 color:white;
 font-family:Fredoka;
 text-align:center;
+overflow-x:hidden;
 }
 
 /* header */
@@ -48,6 +49,7 @@ font-family:Orbitron;
 font-size:60px;
 color:#ff7a00;
 margin:20px 0;
+animation:glow 3s infinite alternate;
 }
 
 .tagline{
@@ -81,11 +83,15 @@ text-decoration:none;
 
 transition:0.3s;
 
+animation:fadeUp 1.2s;
+
 }
 
 .buttons a:hover{
 
 transform:scale(1.1);
+
+box-shadow:0 0 20px #ff7a00;
 
 }
 
@@ -127,7 +133,15 @@ width:180px;
 
 font-weight:bold;
 
-animation:fade 2s;
+animation:pop 1s ease;
+
+transition:0.3s;
+
+}
+
+.box:hover{
+
+transform:scale(1.1);
 
 }
 
@@ -211,6 +225,32 @@ opacity:0.6;
 
 }
 
+/* particles */
+
+.particles{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+top:0;
+
+left:0;
+
+pointer-events:none;
+
+background-image:radial-gradient(#ff7a00 1px, transparent 1px);
+
+background-size:40px 40px;
+
+opacity:0.1;
+
+animation:move 20s linear infinite;
+
+}
+
 /* animations */
 
 @keyframes float{
@@ -223,6 +263,22 @@ opacity:0.6;
 
 }
 
+@keyframes glow{
+
+from{ text-shadow:0 0 5px #ff7a00;}
+
+to{ text-shadow:0 0 25px #ff7a00;}
+
+}
+
+@keyframes pop{
+
+0%{transform:scale(0.6);opacity:0}
+
+100%{transform:scale(1);opacity:1}
+
+}
+
 @keyframes fade{
 
 from{opacity:0}
@@ -230,28 +286,42 @@ from{opacity:0}
 to{opacity:1}
 
 }
-.buttons a:hover{
-transform:scale(1.1);
-box-shadow:0 0 15px #ff7a00;
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
 }
 
-.box:hover{
-transform:scale(1.1);
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
 }
 
-h1{
-animation:glow 3s infinite alternate;
 }
 
-@keyframes glow{
-from{ text-shadow:0 0 5px #ff7a00;}
-to{ text-shadow:0 0 25px #ff7a00;}
+@keyframes move{
+
+from{background-position:0 0;}
+
+to{background-position:400px 400px;}
+
 }
+
 </style>
 
 </head>
 
 <body>
+
+<div class="particles"></div>
 
 <header>
 
@@ -275,7 +345,7 @@ The fractal powered penguin of Solana 🐧
 
 <a href="https://www.orca.so/">Buy on Orca</a>
 
-<a href="#">Dexscreener</a>
+<a href="https://dexscreener.com/">Dexscreener</a>
 
 <a href="https://t.me/fractal_pengu_official">Join Telegram</a>
 
@@ -289,65 +359,17 @@ The fractal powered penguin of Solana 🐧
 
 <h2>Tokenomics</h2>
 
-<div class="box">
+<div class="box">Name<br>Fractal Pengu</div>
 
-Name
+<div class="box">Ticker<br>FPENGU</div>
 
-<br>
+<div class="box">Total Supply<br>300,000,000</div>
 
-Fractal Pengu
+<div class="box">Circulating<br>270,000,000</div>
 
-</div>
+<div class="box">Vesting<br>30,000,000</div>
 
-<div class="box">
-
-Ticker
-
-<br>
-
-FPENGU
-
-</div>
-
-<div class="box">
-
-Total Supply
-
-<br>
-
-300,000,000
-
-</div>
-
-<div class="box">
-
-Circulating
-
-<br>
-
-270,000,000
-
-</div>
-
-<div class="box">
-
-Vesting
-
-<br>
-
-30,000,000
-
-</div>
-
-<div class="box">
-
-Listed On
-
-<br>
-
-Orca + All DEX
-
-</div>
+<div class="box">Listed On<br>Orca + All DEX</div>
 
 </section>
 
