@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Pengu | Fixed & Modern</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #ff7a00;
+            --primary-glow: rgba(255, 122, 0, 0.4);
+            --bg-light: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #555;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px; }
+            nav .nav-links { display: none; } /* Mobile-la simple-ah vechuruken */
+        }
+
+        /* HERO SECTION - BUG FIXED HERE */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, #fff5ee 0%, #ffffff 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pengu-img {
+            max-width: 280px;
+            width: 100%;
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 15px 25px var(--primary-glow));
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 7vw, 64px);
+            font-weight: 800;
+            margin: 30px 0 15px;
+            line-height: 1.1;
+            z-index: 2;
+        }
+
+        .hero h1 span { color: var(--primary); }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: clamp(16px, 2.5vw, 20px);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        /* Button spacing fix to prevent overlap */
+        .hero-btn {
+            background: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px var(--primary-glow);
+            margin-bottom: 50px; /* Added margin to push next image down */
+            z-index: 3;
+            position: relative;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px var(--primary-glow);
+        }
+
+        /* SECTIONS */
+        section { padding: 80px 10%; text-align: center; }
+        
+        h2 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin: 12px auto 0;
+            border-radius: 10px;
+        }
+
+        .text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        /* TOKENOMICS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .box {
+            background: #fff9f5;
+            padding: 25px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 122, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .box b {
+            display: block;
+            font-size: 20px;
+            color: var(--text-main);
+            margin-top: 8px;
+        }
+
+        /* ROADMAP */
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .phase {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: left;
+            box-shadow: var(--card-shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .phase h3 { color: var(--primary); margin-top: 0; }
+
+        /* CONTRACT */
+        .contract-box {
+            background: #f8f8f8;
+            padding: 30px 20px;
+            border-radius: 25px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            width: 90%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-family: monospace;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background: var(--text-main);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #111;
+            color: #777;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Fractal Pengu</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#community">Community</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="https://t.me/fractal_pengu_official">Telegram</a>
+            <a class="cta" href="https://dexscreener.com/">View Chart</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="pengu1.png" class="pengu-img" alt="Penguin Top">
+        
+        <h1>The <span>Fractal Penguin</span><br>powering the next wave</h1>
+        
+        <p>A community-driven meme token inspired by fractal patterns and the unstoppable internet culture on Solana.</p>
+        
+        <button class="hero-btn" onclick="buy()">Buy FPENGU Now</button>
+        
+        <img src="pengu2.jpg" class="pengu-img" alt="Penguin Bottom">
+    </section>
+
+    <section id="about">
+        <h2>About Fractal Pengu</h2>
+        <p class="text">
+            Fractal Pengu is a community driven meme cryptocurrency created on the Solana blockchain.
+            Inspired by fractal mathematics and internet culture, the project celebrates creativity,
+            decentralization and community driven innovation.
+        </p>
+    </section>
+
+    <section id="tokenomics">
+        <h2>Tokenomics</h2>
+        <div class="grid">
+            <div class="box">Name<br><b>Fractal Pengu</b></div>
+            <div class="box">Ticker<br><b>FPENGU</b></div>
+            <div class="box">Total Supply<br><b>300M</b></div>
+            <div class="box">Circulating<br><b>270M</b></div>
+            <div class="box">Vesting<br><b>30M</b></div>
+            <div class="box">DEX<br><b>Orca + All</b></div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <div class="roadmap">
+            <div class="phase">
+                <h3>Phase 1</h3>
+                <p>• Token launch<br>• Website release<br>• Community building</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 2</h3>
+                <p>• DEX listings<br>• Marketing push<br>• Community expansion</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 3</h3>
+                <p>• Partnerships<br>• Major campaigns<br>• Global growth</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="chart">
+        <h2>Live Chart</h2>
+        <iframe src="https://dexscreener.com/" width="100%" height="500" style="border:none; border-radius: 20px;"></iframe>
+    </section>
+
+    <section>
+        <h2>Contract Address</h2>
+        <div class="contract-box">
+            <input id="ca" value="88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91" readonly>
+            <button class="copy-btn" onclick="copy()">Copy Address</button>
+        </div>
+    </section>
+
+    <footer style="text-align: center;">
+        <p>© 2026 FRACTAL PENGU — POWERED BY THE COMMUNITY</p>
+    </footer>
+
+    <script>
+        function copy() {
+            var copyText = document.getElementById("ca");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Contract Address Copied!");
+        }
+
+        function buy() {
+            window.open("https://www.orca.so/");
+        }
+    </script>
+
+</body>
+</html>
+
