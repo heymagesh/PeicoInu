@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractal Pengu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Inter;
+background:white;
+color:#111;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+background:white;
+position:sticky;
+top:0;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:999;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+color:#ff7a00;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#444;
+font-size:14px;
+}
+
+.cta{
+background:#ff7a00;
+color:white;
+padding:8px 14px;
+border-radius:8px;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+}
+
+.pengu-top{
+width:340px;
+border-radius:50%;
+margin-bottom:40px;
+animation:float 4s ease-in-out infinite;
+box-shadow:0 0 40px rgba(255,122,0,0.4);
+}
+
+.pengu-bottom{
+width:340px;
+border-radius:50%;
+margin-top:50px;
+animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+.hero h1{
+font-size:50px;
+max-width:900px;
+line-height:1.2;
+}
+
+.hero span{
+color:#ff7a00;
+}
+
+.hero p{
+color:#666;
+font-size:20px;
+margin-top:20px;
+}
+
+.hero button{
+margin-top:30px;
+background:#ff7a00;
+color:white;
+padding:16px 28px;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 20px;
+text-align:center;
+}
+
+h2{
+color:#ff7a00;
+font-size:42px;
+}
+
+/* TEXT */
+
+.text{
+max-width:900px;
+margin:auto;
+font-size:22px;
+line-height:2;
+margin-top:30px;
+color:#333;
+}
+
+/* TOKEN BOXES */
+
+.grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:40px;
+}
+
+.box{
+background:#f9f9f9;
+padding:30px;
+border-radius:12px;
+width:200px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* CHART */
+
+.chart{
+margin-top:60px;
+}
+
+/* CONTRACT */
+
+input{
+padding:12px;
+width:320px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+.copy{
+background:#ff7a00;
+color:white;
+padding:12px 18px;
+border:none;
+border-radius:10px;
+margin-left:10px;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:50px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">Fractal Pengu</div>
+
+<div class="nav-links">
+
+<a href="#about">About</a>
+<a href="#tokenomics">Tokenomics</a>
+<a href="#community">Community</a>
+<a href="#chart">Chart</a>
+<a href="https://t.me/fractal_pengu_official">Telegram</a>
+<a class="cta" href="https://dexscreener.com/solana/88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91">View Chart</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<img src="pengu1.png" class="pengu-top">
+
+<h1>
+The <span>Fractal Penguin</span> powering the next meme wave on Solana
+</h1>
+
+<p>
+Community driven meme token inspired by fractal patterns and internet culture.
+</p>
+
+<button onclick="buy()">Buy FPENGU</button>
+
+<img src="pengu2.jpg" class="pengu-bottom">
+
+</section>
+
+<section id="about">
+
+<h2>About Fractal Pengu</h2>
+
+<p class="text">
+
+Fractal Pengu is a community driven meme cryptocurrency built on the Solana blockchain. 
+Inspired by fractal mathematics and internet culture, the project represents creativity, 
+decentralization and the unpredictable beauty of blockchain ecosystems.
+
+The penguin mascot symbolizes curiosity, exploration and resilience. 
+Just like fractal patterns expand infinitely, the Fractal Pengu community grows 
+organically through memes, creativity and decentralized collaboration.
+
+Every holder becomes part of a larger movement where culture, humor and technology 
+merge together to create something unique in the world of Web3.
+
+</p>
+
+</section>
+
+<section id="tokenomics">
+
+<h2>Tokenomics</h2>
+
+<p class="text">
+
+The tokenomics of Fractal Pengu are designed to support long term sustainability 
+and community driven growth.
+
+Total supply is fixed at 300 million tokens ensuring scarcity while maintaining 
+sufficient liquidity for decentralized trading.
+
+270 million tokens are circulating in the market while 30 million tokens are 
+allocated for vesting to support future development and ecosystem expansion.
+
+</p>
+
+<div class="grid">
+
+<div class="box">Name<br><b>Fractal Pengu</b></div>
+<div class="box">Ticker<br><b>FPENGU</b></div>
+<div class="box">Total Supply<br><b>300M</b></div>
+<div class="box">Circulating<br><b>270M</b></div>
+<div class="box">Vesting<br><b>30M</b></div>
+<div class="box">DEX<br><b>Orca + All DEX</b></div>
+
+</div>
+
+</section>
+
+<section id="community">
+
+<h2>Community</h2>
+
+<p class="text">
+
+The Fractal Pengu community represents the heart of the ecosystem. 
+Built on the principles of decentralization and internet culture, 
+the project encourages creativity, collaboration and participation 
+from every member.
+
+From memes to community raids and social media campaigns, 
+the penguins work together to expand the reach of the project 
+across the Solana ecosystem and beyond.
+
+Together the community builds a decentralized movement where 
+ideas spread like fractals across the blockchain.
+
+</p>
+
+</section>
+
+<section id="chart">
+
+<h2>Live Chart</h2>
+
+<div class="chart">
+
+<iframe
+src="https://dexscreener.com/solana/88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91?embed=1"
+width="90%"
+height="600"
+style="border:none;border-radius:12px;">
+</iframe>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Contract Address</h2>
+
+<input id="ca" value="88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91">
+
+<button class="copy" onclick="copy()">Copy</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 Fractal Pengu — Powered by the community</p>
+
+</footer>
+
+<script>
+
+function copy(){
+var copyText=document.getElementById("ca")
+copyText.select()
+document.execCommand("copy")
+alert("Contract copied!")
+}
+
+function buy(){
+window.open("https://www.orca.so/")
+}
+
+</script>
+
+</body>
+
+</html>
