@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Pengu | Solana Meme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #ff7a00;
+            --primary-grad: linear-gradient(135deg, #ff7a00 0%, #ff9500 100%);
+            --text-dark: #1d1d1f;
+            --text-gray: #6e6e73;
+            --bg-light: #f5f5f7;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR - MODERN GLASS */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 24px;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav .links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta {
+            background: var(--primary-grad);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top right, rgba(255,122,0,0.05), transparent);
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            max-width: 1000px;
+            letter-spacing: -2px;
+            margin: 20px 0;
+        }
+
+        .hero span {
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .pengu-img {
+            width: 320px;
+            border-radius: 50%;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .main-btn {
+            background: var(--primary-grad);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 25px rgba(255, 122, 0, 0.4);
+        }
+
+        .main-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 122, 0, 0.5);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        /* GRID FOR TOKENOMICS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .box {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .box b {
+            display: block;
+            font-size: 22px;
+            margin-top: 10px;
+            color: var(--primary);
+        }
+
+        /* ROADMAP */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .phase {
+            text-align: left;
+            background: var(--white);
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .phase h3 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* CHART BOX */
+        .chart-container {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 30px;
+            margin-top: 40px;
+        }
+
+        /* CONTRACT UI */
+        .ca-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        input {
+            padding: 16px 25px;
+            width: 400px;
+            max-width: 90%;
+            border-radius: 50px;
+            border: 1px solid #e5e5e7;
+            font-size: 16px;
+            background: var(--bg-light);
+            font-family: monospace;
+            text-align: center;
+        }
+
+        .copy-btn {
+            background: var(--text-dark);
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+        }
+
+        footer {
+            padding: 80px 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            .links { gap: 15px; font-size: 12px; }
+            section { padding: 60px 5%; }
+            .hero h1 { font-size: 42px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Fractal Pengu</div>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="https://t.me/fractal_pengu_official">Telegram</a>
+            <a class="cta" href="https://dexscreener.com/">View Chart</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="pengu1.png" class="pengu-img" alt="Pengu">
+        <h1>Powering the next <span>Meme Wave</span> on Solana</h1>
+        <p>Inspired by fractal patterns and internet culture. The coolest penguin on the blockchain.</p>
+        <button class="main-btn" onclick="buy()">Buy $FPENGU</button>
+    </section>
+
+    <section id="about">
+        <div class="card">
+            <h2>About Fractal Pengu</h2>
+            <p style="font-size: 20px; line-height: 1.8; color: var(--text-gray); max-width: 800px; margin: auto;">
+                Fractal Pengu is a community-driven movement on the Solana blockchain. 
+                We believe in the power of decentralization, creativity, and high-speed innovation. 
+                Our community is built on the resilience of the penguin and the infinite potential of fractals.
+            </p>
+        </div>
+    </section>
+
+    <section id="tokenomics">
+        <h2>Tokenomics</h2>
+        <div class="grid">
+            <div class="box">Name<b>Fractal Pengu</b></div>
+            <div class="box">Ticker<b>$FPENGU</b></div>
+            <div class="box">Supply<b>300,000,000</b></div>
+            <div class="box">Tax<b>0% Buy/Sell</b></div>
+            <div class="box">LP<b>Burned Forever</b></div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <div class="roadmap-grid">
+            <div class="phase">
+                <h3>Phase 1</h3>
+                <p>• Token Launch<br>• Website Release<br>• Community Growth</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 2</h3>
+                <p>• DEX Listings<br>• Marketing Push<br>• 2000+ Holders</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 3</h3>
+                <p>• Tier 1 Partnerships<br>• CEX Listings<br>• Global Campaigns</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Live Chart</h2>
+        <div class="chart-container">
+            <iframe 
+                src="https://dexscreener.com/solana/88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91?embed=1&theme=light" 
+                width="100%" height="600" style="border:none; border-radius: 20px;">
+            </iframe>
+        </div>
+    </section>
+
+    <section id="ca">
+        <h2>Contract Address</h2>
+        <div class="ca-box">
+            <input id="ca-value" value="88KA3T1Tq2n85pha75jG1GuXRkqZCbBr9jxF8EutDa91" readonly>
+            <button class="copy-btn" onclick="copy()">Copy Address</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Fractal Pengu — Built for the Community by the Community</p>
+    </footer>
+
+    <script>
+        function copy() {
+            var copyText = document.getElementById("ca-value");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = "Copied!";
+            btn.style.background = "#2ecc71";
+            setTimeout(() => {
+                btn.innerText = "Copy Address";
+                btn.style.background = "#1d1d1f";
+            }, 2000);
+        }
+
+        function buy() {
+            window.open("https://www.orca.so/");
+        }
+    </script>
+
+</body>
+</html>
