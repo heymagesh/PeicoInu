@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 
 <head>
@@ -9,12 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 body{
 margin:0;
 font-family:Inter;
-background:white;
-color:#111;
+background:#0b0f0c;
+color:#eaffea;
 scroll-behavior:smooth;
 }
 
@@ -25,52 +24,32 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 30px; 
-background:white;
+background:#0b0f0c;
 position:sticky;
 top:0;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+box-shadow:0 2px 10px rgba(0,255,120,0.1);
 z-index:999;
 }
 
 .logo{
 font-weight:700;
 font-size:22px;
-color:#00c853; /* GREEN */
+color:#00ff88;
 }
 
 nav a{
 margin-left:15px; 
 text-decoration:none;
-color:#444;
+color:#b6ffcc;
 font-weight:500;
 }
 
 .cta{
-background:#00c853;
-color:white;
+background:#00ff88;
+color:black;
 padding:8px 14px; 
 border-radius:8px;
 white-space: nowrap; 
-}
-
-/* MOBILE FIX */
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        padding: 15px;
-    }
-    nav div:last-child {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    nav a {
-        margin-left: 0;
-        font-size: 14px;
-    }
 }
 
 /* HERO */
@@ -85,25 +64,18 @@ text-align:center;
 padding:40px;
 }
 
-/* PENGUIN ANIMATION */
+/* IMAGES */
 
-.pengu-top{
-max-width:90%; 
-width:380px;
-border-radius:50%;
-margin-bottom:40px;
-animation:float 4s ease-in-out infinite;
-box-shadow:0 0 40px rgba(0,200,83,0.5);
-}
-
+.pengu-top,
 .pengu-bottom{
 max-width:90%; 
 width:380px;
 border-radius:50%;
-margin-top:60px;
-animation:float 5s ease-in-out infinite;
-box-shadow:0 0 40px rgba(0,200,83,0.4);
+animation:float 4s ease-in-out infinite;
+box-shadow:0 0 40px rgba(0,255,120,0.4);
 }
+
+/* FLOAT */
 
 @keyframes float{
 0%{transform:translateY(0)}
@@ -120,11 +92,11 @@ line-height:1.2;
 }
 
 .hero span{
-color:#00c853;
+color:#00ff88;
 }
 
 .hero p{
-color:#666;
+color:#a0f5c0;
 font-size:22px;
 margin-top:20px;
 }
@@ -133,8 +105,8 @@ margin-top:20px;
 
 .hero button{
 margin-top:30px;
-background:#00c853;
-color:white;
+background:#00ff88;
+color:black;
 padding:18px 32px;
 border:none;
 border-radius:10px;
@@ -145,7 +117,7 @@ transition:0.3s;
 
 .hero button:hover{
 transform:scale(1.08);
-box-shadow:0 10px 25px rgba(0,200,83,0.4);
+box-shadow:0 10px 25px rgba(0,255,120,0.4);
 }
 
 /* SECTIONS */
@@ -156,7 +128,7 @@ text-align:center;
 }
 
 h2{
-color:#00c853;
+color:#00ff88;
 font-size:46px;
 }
 
@@ -168,10 +140,10 @@ margin:auto;
 font-size:24px;
 line-height:2.2;
 margin-top:40px;
-color:#333;
+color:#c8ffd9;
 }
 
-/* TOKEN BOXES */
+/* BOXES */
 
 .grid{
 display:flex;
@@ -182,18 +154,18 @@ margin-top:60px;
 }
 
 .box{
-background:#f9fff9; /* light green tint */
+background:#111;
 padding:35px;
 border-radius:12px;
 width:210px;
 font-size:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 10px 25px rgba(0,255,120,0.1);
 transition:0.3s;
 }
 
 .box:hover{
 transform:translateY(-8px);
-box-shadow:0 15px 35px rgba(0,0,0,0.15);
+box-shadow:0 15px 35px rgba(0,255,120,0.2);
 }
 
 /* ROADMAP */
@@ -207,15 +179,15 @@ margin-top:50px;
 }
 
 .phase{
-background:#f9fff9;
+background:#111;
 padding:40px;
 width:240px;
 border-radius:14px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 10px 25px rgba(0,255,120,0.1);
 }
 
 .phase h3{
-color:#00c853;
+color:#00ff88;
 }
 
 /* TRUST */
@@ -226,7 +198,7 @@ text-align:center;
 }
 
 #trust h2{
-color:#00c853;
+color:#00ff88;
 font-size:40px;
 margin-bottom:50px;
 }
@@ -240,26 +212,20 @@ margin:auto;
 }
 
 .trust-box{
-background:#f1fff4;
+background:#111;
 padding:40px 20px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+box-shadow:0 10px 30px rgba(0,255,120,0.1);
 }
 
 .trust-box h3{
-color:#00c853;
+color:#00ff88;
 margin-bottom:15px;
 }
 
 .trust-box p{
-color:#444;
+color:#b6ffcc;
 line-height:1.6;
-}
-
-/* CHART */
-
-.chart{
-margin-top:60px;
 }
 
 /* CONTRACT */
@@ -269,13 +235,15 @@ padding:14px;
 max-width:90%;
 width:380px;
 border-radius:10px;
-border:1px solid #ddd;
+border:1px solid #00ff88;
+background:#0b0f0c;
+color:#eaffea;
 font-size:18px;
 }
 
 .copy{
-background:#00c853;
-color:white;
+background:#00ff88;
+color:black;
 padding:14px 20px;
 border:none;
 border-radius:10px;
@@ -286,8 +254,8 @@ cursor:pointer;
 /* FOOTER */
 
 footer{
-background:#0f1f14; /* dark green */
-color:white;
+background:#000;
+color:#00ff88;
 text-align:center;
 padding:60px;
 font-size:18px;
