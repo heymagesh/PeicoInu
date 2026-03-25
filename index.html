@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Peico Inu | The Dark Emperor of Solana Memes 🐶💚</title>
+    
+    <meta name="description" content="Peico Inu ($PEICO) - The ultimate community-driven meme coin on Solana. 100% LP Burned. No Rugs. Join the Pack.">
+    <meta name="keywords" content="Peico Inu, Solana Meme, Crypto, Pump.fun, Raydium, Instagram, $PEICO, Moonshot">
+    <meta name="author" content="Peico Inu Team">
+    <meta property="og:title" content="Peico Inu - Solana's Greenest Empire">
+    <meta property="og:image" content="peico1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#00FF7F">
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;700&family=Outfit:wght@100;300;600;900&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           1. CORE SYSTEM & VARIABLES 
+           ============================================================ */
+        :root {
+            --primary: #00FF7F;
+            --primary-dark: #00D166;
+            --secondary: #1E293B;
+            --dark: #050505;
+            --dark-card: #0F0F0F;
+            --white: #FFFFFF;
+            --glass: rgba(10, 10, 10, 0.92);
+            --border: rgba(0, 255, 127, 0.2);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            --font-main: 'Space Grotesk', sans-serif;
+            --font-heading: 'Unbounded', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ============================================================
+           2. GLOBAL RESET & BUG FIXES 
+           ============================================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        html { overflow-x: hidden; scroll-behavior: smooth; font-size: 16px; background-color: var(--dark); }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--white);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            width: 100vw;
+        }
+
+        section { padding: 120px 8%; position: relative; width: 100%; display: block; overflow: hidden; }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--white); line-height: 1.1; }
+        p { font-size: 1.1rem; color: #94A3B8; font-weight: 400; }
+        a { transition: var(--transition); text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; user-select: none; }
+
+        /* ============================================================
+           3. ANIMATIONS 
+           ============================================================ */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* ============================================================
+           4. PRELOADER & SCROLLBAR
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        #preloader {
+            position: fixed; inset: 0; z-index: 10000;
+            background: var(--dark); display: flex;
+            justify-content: center; align-items: center;
+        }
+        .loader-logo { width: 90px; animation: pulse 1.5s infinite; border-radius: 50%; border: 2px solid var(--primary); }
+
+        /* ============================================================
+           5. HEADER & NAV BUGS FIXED
+           ============================================================ */
+        .top-ticker {
+            background: var(--primary); color: var(--dark);
+            height: 40px; display: flex; align-items: center;
+            overflow: hidden; position: fixed; top: 0; width: 100%; z-index: 2001;
+        }
+        .ticker-move { display: flex; animation: marquee 30s linear infinite; }
+        .ticker-move span { padding: 0 40px; font-weight: 900; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+
+        header {
+            position: fixed; top: 60px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1400px; background: var(--glass);
+            backdrop-filter: blur(20px); padding: 15px 35px; border-radius: 100px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 2000; border: 1px solid var(--border); transition: var(--transition);
+        }
+        header.scrolled { top: 15px; width: 95%; background: rgba(5,5,5,0.98); padding: 12px 30px; }
+
+        .logo-wrap { display: flex; align-items: center; gap: 12px; }
+        .logo-wrap img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); }
+        .logo-wrap span { font-family: var(--font-heading); font-weight: 900; font-size: 1.2rem; color: var(--white); }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { color: #CBD5E1; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px; position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .header-action { display: flex; gap: 12px; }
+        .btn-header { 
+            padding: 10px 22px; border-radius: 50px; font-weight: 800; font-size: 0.75rem; 
+            border: 1px solid var(--primary); color: var(--white); cursor: pointer;
+        }
+        .btn-header.buy { background: var(--primary); color: var(--dark); }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2); }
+
+        .mob-menu-btn { display: none; cursor: pointer; color: var(--primary); font-size: 1.5rem; }
+
+        /* ============================================================
+           6. HERO SECTION
+           ============================================================ */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            background: radial-gradient(circle at 80% 20%, rgba(0, 255, 127, 0.08), transparent 50%);
+            padding-top: 140px;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+        .hero-text h1 { font-size: 5.8rem; letter-spacing: -4px; margin-bottom: 20px; }
+        .hero-text h1 span { color: var(--primary); }
+        .hero-text p { font-size: 1.3rem; max-width: 550px; margin-bottom: 40px; }
+
+        .hero-visual { position: relative; display: flex; justify-content: center; }
+        .hero-main-img { 
+            width: 450px; height: 450px; object-fit: cover; 
+            border: 12px solid var(--dark-card); box-shadow: 0 0 50px rgba(0, 255, 127, 0.1);
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; animation: float 6s infinite ease-in-out; 
+        }
+        .hero-badge { 
+            position: absolute; background: var(--dark-card); padding: 15px 22px; 
+            border-radius: 15px; border: 1px solid var(--border);
+            font-weight: 900; font-size: 0.7rem; color: var(--white); z-index: 5;
+        }
+        .b-top { top: 0; right: 0; border-color: var(--primary); color: var(--primary); }
+        .b-bot { bottom: 40px; left: -10px; }
+
+        /* ============================================================
+           7. TRACKER & DASHBOARD
+           ============================================================ */
+        .tracker-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: -80px; position: relative; z-index: 10; }
+        .track-card { 
+            background: var(--dark-card); padding: 35px 25px; border-radius: 30px; 
+            border: 1px solid var(--border); text-align: center; transition: var(--transition);
+        }
+        .track-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .track-card label { font-size: 0.7rem; font-weight: 800; color: #64748B; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .track-card .val { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: var(--white); }
+
+        /* ============================================================
+           8. CALCULATOR SECTION
+           ============================================================ */
+        .calc-box { background: #080808; border-radius: 40px; padding: 70px 6%; border: 1px solid var(--border); margin-top: 60px; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .calc-input-area { background: rgba(255,255,255,0.02); padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); }
+        .calc-group { margin-bottom: 20px; }
+        .calc-group label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 0.85rem; }
+        .calc-group input { 
+            width: 100%; padding: 18px; border-radius: 12px; border: 1px solid var(--border); 
+            background: var(--dark); color: #fff; font-size: 1.3rem; font-weight: 800; outline: none;
+        }
+        .calc-res { 
+            margin-top: 20px; padding: 20px; background: var(--primary); color: #000; 
+            border-radius: 15px; text-align: center; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900;
+        }
+
+        /* ============================================================
+           9. ABOUT & FEATURES
+           ============================================================ */
+        .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        .about-img img { border-radius: 35px; border: 1px solid var(--border); }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+        .f-item { padding: 25px; background: var(--dark-card); border-radius: 20px; border: 1px solid var(--border); transition: 0.3s; }
+        .f-item:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .f-item i { font-size: 1.8rem; color: var(--primary); margin-bottom: 12px; display: block; }
+
+        /* ============================================================
+           10. GALLERY (VAULT)
+           ============================================================ */
+        .vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .v-card { position: relative; border-radius: 25px; overflow: hidden; aspect-ratio: 1; border: 1px solid var(--border); cursor: pointer; }
+        .v-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: brightness(0.7); }
+        .v-card:hover img { transform: scale(1.1); filter: brightness(1); }
+        .v-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: 0.3s; display: flex; align-items: flex-end; padding: 25px; }
+        .v-card:hover .v-overlay { opacity: 1; }
+
+        /* ============================================================
+           11. TOKENOMICS 
+           ============================================================ */
+        .tokenomics { background: #030303; border-top: 1px solid var(--border); border-radius: 60px 60px 0 0; }
+        .t-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .t-data { background: var(--dark-card); padding: 45px; border-radius: 35px; border: 1px solid var(--border); }
+        .t-row { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid rgba(0,255,127,0.1); }
+        .t-row:last-child { border: none; }
+        .t-chart { display: flex; align-items: flex-end; justify-content: space-around; height: 350px; background: var(--dark-card); border-radius: 30px; padding: 30px; border: 1px solid var(--border); }
+        .t-bar { width: 55px; background: var(--primary); border-radius: 10px 10px 0 0; position: relative; height: 0; transition: 1.5s ease-out; }
+        .t-bar span { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; font-weight: 900; }
+
+        /* ============================================================
+           12. CA BANNER
+           ============================================================ */
+        .ca-banner { background: var(--dark-card); border-radius: 40px; padding: 70px 5%; text-align: center; border: 1px solid var(--border); }
+        .ca-field { 
+            background: #000; padding: 22px; border-radius: 18px; border: 2px dashed var(--primary); 
+            display: inline-flex; align-items: center; gap: 15px; margin-top: 30px; width: 100%; max-width: 750px; 
+        }
+        .ca-field code { font-family: monospace; font-size: 1.1rem; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+
+        /* ============================================================
+           13. SOCIALS (PROPER LOGOS)
+           ============================================================ */
+        .comm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .sc-link { 
+            background: var(--dark-card); padding: 60px 20px; border-radius: 35px; 
+            text-align: center; border: 1px solid var(--border); transition: 0.4s;
+        }
+        .sc-link i { font-size: 3.5rem; margin-bottom: 20px; display: block; }
+        
+        .tg-color:hover { border-color: #229ED9; box-shadow: 0 0 20px rgba(34, 158, 217, 0.2); }
+        .tg-color i { color: #229ED9; }
+        
+        .x-color:hover { border-color: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+        .x-color i { color: #fff; }
+        
+        .ig-color:hover { border-color: #E1306C; box-shadow: 0 0 20px rgba(225, 48, 108, 0.2); }
+        .ig-color i { color: #E1306C; }
+
+        /* ============================================================
+           14. ROADMAP & FAQ
+           ============================================================ */
+        .lore-timeline { position: relative; max-width: 1000px; margin: 0 auto; padding-left: 30px; }
+        .lore-timeline::before { content: ''; position: absolute; left: 0; width: 2px; height: 100%; background: var(--border); }
+        .time-block { padding: 25px 0 25px 40px; position: relative; }
+        .time-dot { width: 18px; height: 18px; background: var(--primary); border: 3px solid var(--dark); border-radius: 50%; position: absolute; left: -9px; top: 30px; box-shadow: 0 0 10px var(--primary); }
+        .time-card { background: var(--dark-card); padding: 30px; border-radius: 25px; border: 1px solid var(--border); }
+        
+        .faq-item { background: var(--dark-card); border-radius: 18px; border: 1px solid var(--border); margin-bottom: 12px; }
+        .faq-q { padding: 22px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 800; }
+        .faq-a { padding: 0 30px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; color: #94A3B8; font-size: 0.95rem; }
+
+        /* ============================================================
+           15. FOOTER
+           ============================================================ */
+        footer { padding: 90px 8% 40px; background: #020202; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
+        .f-col h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.5rem; }
+        .f-col ul { list-style: none; }
+        .f-col li { margin-bottom: 10px; font-size: 0.9rem; color: #64748B; cursor: pointer; }
+        .f-col li:hover { color: var(--primary); }
+
+        /* ============================================================
+           16. MOBILE FIXES
+           ============================================================ */
+        @media (max-width: 900px) {
+            header { padding: 12px 22px; width: 92%; }
+            .nav-links { 
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
+                background: var(--dark-card); flex-direction: column; justify-content: center; 
+                transition: 0.5s; z-index: 2005; border-left: 1px solid var(--border);
+            }
+            .nav-links.active { right: 0; }
+            .mob-menu-btn { display: block; z-index: 2010; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .hero-main-img { width: 320px; height: 320px; }
+            .tracker-grid { grid-template-columns: 1fr 1fr; }
+            .about-wrap, .calc-grid, .t-wrap, .comm-grid, .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div id="preloader"><img src="peico1.jpg" alt="Loader" class="loader-logo"></div>
+
+    <div class="top-ticker">
+        <div class="ticker-move">
+            <span>$PEICO INU - THE PEOPLES DARK EMPIRE</span>
+            <span>SOLANA ECOSYSTEM FASTEST GROWING MEME</span>
+            <span>100% LIQUIDITY BURNED FOREVER</span>
+            <span>JOIN THE PACK ON INSTAGRAM & TELEGRAM</span>
+            <span>$PEICO INU - THE PEOPLES DARK EMPIRE</span>
+            <span>100% LIQUIDITY BURNED FOREVER</span>
+        </div>
+    </div>
+
+    <header id="mainHeader">
+        <a href="#top" class="logo-wrap">
+            <img src="peico1.jpg" alt="Logo">
+            <span>PEICO INU</span>
+        </a>
+        <nav>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="#top" onclick="toggleMenu()">HOME</a></li>
+                <li><a href="#about" onclick="toggleMenu()">ABOUT</a></li>
+                <li><a href="#tokenomics" onclick="toggleMenu()">PEICONOMICS</a></li>
+                <li><a href="#roadmap" onclick="toggleMenu()">CONQUEST</a></li>
+                <li><a href="#community" onclick="toggleMenu()">SOCIALS</a></li>
+            </ul>
+        </nav>
+        <div class="header-action">
+            <a href="https://pump.fun/coin/B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump" class="btn-header buy" target="_blank">BUY</a>
+            <div class="mob-menu-btn" id="mobBtn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span style="color:var(--primary); font-weight:900; letter-spacing:4px; font-size:0.75rem;">$PEICO MOVEMENT</span>
+                    <h1>Peico Inu <br><span>Empire.</span></h1>
+                    <p>Dominating the Solana blockchain with community power. Pure transparency, zero taxes, and maximum vibes.</p>
+                    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+                        <button class="btn-header buy" style="padding:18px 40px; font-size:1rem;" onclick="buy()">GET $PEICO</button>
+                        <a href="#community" class="btn-header" style="padding:18px 40px; font-size:1rem; display:flex; align-items:center;">JOIN THE PACK</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-badge b-top">🔥 100% BURNED</div>
+                    <div class="hero-badge b-bot">🛡️ RENOUNCED</div>
+                    <img src="peico1.jpg" alt="Mascot" class="hero-main-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="tracker-section">
+            <div class="tracker-grid">
+                <div class="track-card">
+                    <label>Market Cap</label>
+                    <div class="val" id="m-sim">$1.5M</div>
+                </div>
+                <div class="track-card">
+                    <label>Holders</label>
+                    <div class="val">5,900+</div>
+                </div>
+                <div class="track-card">
+                    <label>Price (USD)</label>
+                    <div class="val" style="font-size:1.4rem;">$0.0000421</div>
+                </div>
+                <div class="track-card">
+                    <label>LP Status</label>
+                    <div class="val" style="color:var(--primary);">BURNED</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="calc-box">
+                <div class="calc-grid">
+                    <div>
+                        <h2 style="font-size:2.8rem; margin-bottom:15px;">Empire <br><span style="color:var(--primary);">Calculator</span></h2>
+                        <p>Plan your moon bag. Calculate exactly how many tokens you'll receive.</p>
+                    </div>
+                    <div class="calc-input-area">
+                        <div class="calc-group">
+                            <label>Contribution (SOL)</label>
+                            <input type="number" id="solInput" placeholder="0.0" oninput="calcPeico()">
+                        </div>
+                        <div class="calc-group">
+                            <label>Estimated $PEICO</label>
+                            <div class="calc-res" id="peicoRes">0.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-wrap" style="margin-top:100px;">
+                <div class="about-img"><img src="peico1.jpg" alt="About"></div>
+                <div class="about-content">
+                    <h2>Loyalty Is <br><span>Everything.</span></h2>
+                    <p>We are building a legacy. Peico Inu is designed to be the safest and most viral meme coin on Solana.</p>
+                    <div class="feature-grid">
+                        <div class="f-item"><i class="fas fa-fire"></i><h4>Burned LP</h4><p>Keys destroyed. Funds are safe.</p></div>
+                        <div class="f-item"><i class="fas fa-percent"></i><h4>0% Tax</h4><p>No fees. Pure trading.</p></div>
+                        <div class="f-item"><i class="fas fa-shield-alt"></i><h4>Security</h4><p>Renounced & Verified.</p></div>
+                        <div class="f-item"><i class="fas fa-rocket"></i><h4>Viral</h4><p>Driven by the Pack.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tokenomics" class="tokenomics">
+            <div style="text-align:center; margin-bottom:60px;">
+                <h2 style="font-size:3rem;">Peiconomics</h2>
+            </div>
+            <div class="t-wrap">
+                <div class="t-data">
+                    <div class="t-row"><span>Total Supply</span><span>1,000,000,000</span></div>
+                    <div class="t-row"><span>Circulating</span><span>100%</span></div>
+                    <div class="t-row"><span>LP Status</span><span>BURNED</span></div>
+                    <div class="t-row"><span>Buy/Sell Tax</span><span>0%</span></div>
+                </div>
+                <div class="t-chart">
+                    <div class="t-bar" id="bar1"><span>90% LP</span></div>
+                    <div class="t-bar" id="bar2" style="background:#1E293B;"><span>5% Mark</span></div>
+                    <div class="t-bar" id="bar3" style="background:#0F172A;"><span>4% Eco</span></div>
+                    <div class="t-bar" id="bar4" style="background:#fff;"><span>1% Dev</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="ca-banner">
+                <h2 style="color:var(--primary);">Official Contract</h2>
+                <div class="ca-field">
+                    <code id="caVal">B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump</code>
+                    <button class="btn-header buy" onclick="copyCA()">COPY</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="community">
+            <div style="text-align:center; margin-bottom:60px;">
+                <h2 style="font-size:3rem;">Join the <span>Imperial Pack</span></h2>
+            </div>
+            <div class="comm-grid">
+                <a href="https://t.me/Peico_Inu" class="sc-link tg-color" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <h4>Telegram</h4>
+                    <span>Join the Army</span>
+                </a>
+                <a href="https://x.com/PEICOAI" class="sc-link x-color" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                    <h4>Twitter / X</h4>
+                    <span>Latest Updates</span>
+                </a>
+                <a href="https://instagram.com/peicoinu" class="sc-link ig-color" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <h4>Instagram</h4>
+                    <span>Daily Vibes</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <div style="text-align:center; margin-bottom:60px;">
+                <h2>The <span>Conquest</span></h2>
+            </div>
+            <div class="lore-timeline">
+                <div class="time-block">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 1: GENESIS</h3>
+                        <p>Stealth Launch. LP Burn. 1,000+ Holders. Website Deployment.</p>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 2: SIEGE</h3>
+                        <p>Viral Social Raiding. CMC/CG Listing. 5,000+ Holders.</p>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 3: EMPIRE</h3>
+                        <p>CEX Tier-2 Listings. Official Merch. Global Marketing Takeover.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="faq-wrap">
+                <h2 style="text-align:center; margin-bottom:40px;">F.A.Q</h2>
+                <div class="faq-item">
+                    <div class="faq-q">Is Peico Inu safe? <span>+</span></div>
+                    <div class="faq-a"><p>Yes! Liquidity is 100% burned and the contract is renounced.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What are the taxes? <span>+</span></div>
+                    <div class="faq-a"><p>Zero taxes on all buys and sells. 0/0 forever.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="f-col">
+                <h3>PEICO INU</h3>
+                <p>The Emperor of Solana Memes. Building a legacy of loyalty.</p>
+            </div>
+            <div class="f-col">
+                <h5>QUICK LINKS</h5>
+                <ul>
+                    <li>About</li>
+                    <li>Tokenomics</li>
+                    <li>Roadmap</li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h5>SOCIALS</h5>
+                <ul>
+                    <li>Telegram</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                </ul>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:50px; color:#475569; font-size:0.8rem;">&copy; 2026 Peico Inu. Meme safely. DYOR.</p>
+    </footer>
+
+    <script>
+        // 1. PRELOADER
+        window.onload = () => {
+            document.getElementById('preloader').style.display = 'none';
+            // Trigger Chart Bars
+            setTimeout(() => {
+                document.getElementById('bar1').style.height = '90%';
+                document.getElementById('bar2').style.height = '15%';
+                document.getElementById('bar3').style.height = '10%';
+                document.getElementById('bar4').style.height = '5%';
+            }, 500);
+        };
+
+        // 2. NAV SCROLL
+        window.onscroll = () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+
+        // 3. MOBILE MENU
+        function toggleMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('active');
+            const icon = document.querySelector('#mobBtn i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+
+        // 4. CALCULATOR
+        function calcPeico() {
+            const sol = document.getElementById('solInput').value;
+            const res = document.getElementById('peicoRes');
+            if(sol > 0) res.innerText = (sol * 5200000).toLocaleString() + " $PEICO";
+            else res.innerText = "0.00";
+        }
+
+        // 5. COPY CA
+        function copyCA() {
+            const val = document.getElementById('caVal').innerText;
+            navigator.clipboard.writeText(val);
+            alert("Contract Address Copied!");
+        }
+
+        // 6. FAQ
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.onclick = () => {
+                const a = q.nextElementSibling;
+                a.style.maxHeight = a.style.maxHeight ? null : "200px";
+            }
+        });
+
+        function buy() { window.open("https://pump.fun/coin/B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump", "_blank"); }
+    </script>
+</body>
+</html>
