@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Peico Inu | The Dark Emperor of Solana Memes 🐶💚</title>
+    
+    <meta name="description" content="Peico Inu ($PEICO) - The ultimate community-driven meme coin on Solana. 100% LP Burned. No Rugs. Join the Pack.">
+    <meta name="keywords" content="Peico Inu, Solana Meme, Crypto, Pump.fun, Raydium, Instagram, $PEICO, Moonshot">
+    <meta name="author" content="Peico Inu Team">
+    <meta property="og:title" content="Peico Inu - Solana's Greenest Empire">
+    <meta property="og:image" content="peico1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#00FF7F">
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;700&family=Outfit:wght@100;300;600;900&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           1. CORE SYSTEM & VARIABLES 
+           ============================================================ */
+        :root {
+            --primary: #00FF7F;
+            --primary-dark: #00D166;
+            --secondary: #1E293B;
+            --dark: #050505;
+            --dark-card: #0F0F0F;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --glass: rgba(10, 10, 10, 0.9);
+            --border: rgba(0, 255, 127, 0.15);
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.3);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            --font-main: 'Space Grotesk', sans-serif;
+            --font-heading: 'Unbounded', sans-serif;
+            --font-accent: 'Syne', sans-serif;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --nav-height: 80px;
+        }
+
+        /* ============================================================
+           2. GLOBAL RESET & BUG FIXES 
+           ============================================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        html { overflow-x: hidden; scroll-behavior: smooth; font-size: 16px; background-color: var(--dark); }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--white);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            width: 100vw;
+        }
+
+        section { 
+            padding: 120px 8%; 
+            position: relative; 
+            width: 100%;
+            display: block;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--white); line-height: 1.1; }
+        p { font-size: 1.1rem; color: #94A3B8; font-weight: 400; }
+        a { transition: var(--transition); text-decoration: none; display: inline-block; color: inherit; }
+        img { max-width: 100%; height: auto; user-select: none; }
+
+        /* ============================================================
+           3. ANIMATION LIBRARY 
+           ============================================================ */
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-20px) rotate(1deg); } }
+        @keyframes morph { 0% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; } 100% { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; } }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes reveal { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* ============================================================
+           4. PRELOADER & SCROLLBAR
+           ============================================================ */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; border: 3px solid var(--dark); }
+
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loader-logo { width: 100px; animation: pulse 1.5s infinite ease-in-out; border-radius: 50%; border: 2px solid var(--primary); }
+
+        /* ============================================================
+           5. HEADER & TOP BAR
+           ============================================================ */
+        .top-ticker {
+            background: var(--primary);
+            color: var(--dark);
+            height: 45px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+        }
+        .ticker-move { display: flex; white-space: nowrap; animation: marquee 35s linear infinite; }
+        .ticker-move span { padding: 0 50px; font-weight: 800; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        header {
+            position: fixed;
+            top: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1440px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 12px 40px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        header.scrolled { top: 15px; width: 95%; background: rgba(5,5,5,0.95); }
+
+        .logo-wrap { display: flex; align-items: center; gap: 15px; }
+        .logo-wrap img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); }
+        .logo-wrap span { font-family: var(--font-heading); font-weight: 900; font-size: 1.4rem; letter-spacing: -1px; color: var(--white); }
+
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { color: var(--white); font-weight: 700; font-size: 0.95rem; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .header-action { display: flex; gap: 15px; }
+        .btn-header { 
+            padding: 12px 28px; 
+            border-radius: 50px; 
+            font-weight: 800; 
+            font-size: 0.85rem; 
+            border: 1px solid var(--primary);
+            color: var(--white);
+            cursor: pointer;
+        }
+        .btn-header.buy { background: var(--primary); color: var(--dark); box-shadow: 0 10px 20px rgba(0, 255, 127, 0.2); }
+        .btn-header:hover { transform: translateY(-3px) scale(1.05); }
+
+        .mob-menu-btn { display: none; cursor: pointer; color: var(--primary); }
+
+        /* ============================================================
+           6. HERO - THE MAIN ENTRANCE 
+           ============================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 75% 25%, rgba(0, 255, 127, 0.1), transparent 45%);
+            padding-top: 150px;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+        
+        .hero-text h1 { font-size: 6.5rem; letter-spacing: -5px; line-height: 0.9; margin-bottom: 30px; }
+        .hero-text h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(0,255,127,0.3); }
+        .hero-text p { font-size: 1.5rem; max-width: 600px; margin-bottom: 50px; }
+
+        .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+        .hero-main-img { 
+            width: 500px; height: 500px; 
+            object-fit: cover; 
+            border: 15px solid var(--dark-card); 
+            box-shadow: 0 0 50px rgba(0, 255, 127, 0.2);
+            animation: float 6s infinite ease-in-out, morph 10s infinite alternate; 
+        }
+        .hero-badge { 
+            position: absolute; 
+            background: var(--dark-card); padding: 20px 30px; 
+            border-radius: 20px; box-shadow: var(--shadow-lg); 
+            font-weight: 900; font-family: var(--font-heading); 
+            font-size: 0.8rem; z-index: 5; border: 1px solid var(--border);
+        }
+        .b-top { top: -20px; right: 20px; color: var(--primary); border: 2px solid var(--primary); }
+        .b-bot { bottom: 50px; left: -30px; }
+
+        /* ============================================================
+           7. DASHBOARD & LIVE TRACKER
+           ============================================================ */
+        .tracker-section { padding-top: 0; }
+        .tracker-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 25px; 
+            margin-top: -100px; 
+            z-index: 10;
+        }
+        .track-card { 
+            background: var(--dark-card); padding: 40px; 
+            border-radius: 35px; box-shadow: var(--shadow-lg); 
+            border: 1px solid var(--border); text-align: center;
+            transition: var(--transition);
+        }
+        .track-card:hover { transform: translateY(-15px); border-color: var(--primary); }
+        .track-card label { display: block; font-size: 0.8rem; font-weight: 800; color: #64748B; text-transform: uppercase; margin-bottom: 10px; }
+        .track-card .val { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 900; color: var(--white); }
+
+        /* ============================================================
+           8. THE PEICO CALCULATOR 
+           ============================================================ */
+        .calc-box {
+            background: #080808;
+            border-radius: 50px;
+            padding: 80px 5%;
+            color: #fff;
+            margin-bottom: 50px;
+            border: 1px solid var(--border);
+        }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .calc-input-area { background: rgba(255,255,255,0.03); padding: 50px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .calc-group { margin-bottom: 30px; }
+        .calc-group label { display: block; margin-bottom: 15px; font-weight: 700; color: var(--primary); }
+        .calc-group input { 
+            width: 100%; padding: 20px; 
+            border-radius: 15px; border: 1px solid var(--border); 
+            background: var(--dark); color: #fff; 
+            font-size: 1.5rem; font-weight: 800; font-family: var(--font-main);
+        }
+        .calc-res { 
+            margin-top: 30px; padding: 25px; 
+            background: var(--primary); color: #000; 
+            border-radius: 20px; text-align: center; 
+            font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900;
+        }
+
+        /* ============================================================
+           9. PHILOSOPHY & ABOUT
+           ============================================================ */
+        .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .about-img img { border-radius: 50px; box-shadow: var(--shadow-lg); width: 100%; border: 1px solid var(--border); }
+        .about-content h2 { font-size: 4rem; margin-bottom: 30px; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .f-item { padding: 30px; background: var(--dark-card); border-radius: 25px; border: 1px solid var(--border); transition: 0.3s; }
+        .f-item:hover { border-color: var(--primary); transform: translateX(10px); }
+        .f-item i { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+
+        /* ============================================================
+           10. THE MEME VAULT (GALLERY)
+           ============================================================ */
+        .vault-head { text-align: center; margin-bottom: 80px; }
+        .vault-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 30px; 
+        }
+        .v-card { 
+            position: relative; border-radius: 35px; overflow: hidden; 
+            aspect-ratio: 1; cursor: pointer; box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+        }
+        .v-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
+        .v-card:hover img { transform: scale(1.1) rotate(2deg); }
+        .v-overlay { 
+            position: absolute; inset: 0; 
+            background: linear-gradient(to top, rgba(0, 255, 127, 0.4), transparent); 
+            opacity: 0; transition: 0.4s; display: flex; 
+            align-items: flex-end; padding: 40px;
+        }
+        .v-card:hover .v-overlay { opacity: 1; }
+        .v-overlay h4 { color: #fff; font-size: 1.4rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+        /* ============================================================
+           11. PEICONOMICS & TOKENOMICS
+           ============================================================ */
+        .tokenomics { background: #030303; border-radius: 100px 100px 0 0; border-top: 1px solid var(--border); }
+        .t-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .t-data { background: var(--dark-card); padding: 60px; border-radius: 45px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
+        .t-row { display: flex; justify-content: space-between; padding: 25px 0; border-bottom: 1px solid rgba(0,255,127,0.1); }
+        .t-row:last-child { border: none; }
+        .t-row span:first-child { font-weight: 700; color: #94A3B8; font-size: 1.1rem; }
+        .t-row span:last-child { font-weight: 900; color: var(--primary); font-family: var(--font-heading); }
+
+        .t-chart { 
+            display: flex; align-items: flex-end; justify-content: space-around; 
+            height: 450px; background: var(--dark-card); border-radius: 40px; padding: 50px; 
+            box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+        }
+        .t-bar { 
+            width: 70px; background: var(--primary); 
+            border-radius: 15px 15px 0 0; position: relative; 
+            transition: 1.5s ease; height: 0; 
+        }
+        .t-bar span { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-weight: 900; white-space: nowrap; color: var(--white); font-size: 0.8rem; }
+        .t-bar label { position: absolute; bottom: -45px; left: 50%; transform: translateX(-50%); font-weight: 700; color: #64748B; font-size: 0.8rem; text-transform: uppercase; width: 120px; text-align: center; }
+
+        /* ============================================================
+           12. CONTRACT ADDRESS BANNER 
+           ============================================================ */
+        .ca-banner { 
+            background: var(--dark-card); border-radius: 60px; 
+            padding: 100px 6%; text-align: center; border: 1px solid var(--border);
+        }
+        .ca-banner h2 { color: var(--primary); font-size: 3.5rem; margin-bottom: 20px; }
+        .ca-field { 
+            background: rgba(0,0,0,0.5); padding: 30px; 
+            border-radius: 25px; border: 2px dashed var(--primary); 
+            display: inline-flex; align-items: center; gap: 20px; 
+            margin-top: 40px; width: 100%; max-width: 850px; 
+        }
+        .ca-field code { font-family: monospace; font-size: 1.5rem; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; text-align: left; }
+        .btn-copy { background: var(--primary); border: none; padding: 15px 35px; border-radius: 15px; font-weight: 900; cursor: pointer; transition: 0.3s; color: #000; }
+        .btn-copy:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        /* ============================================================
+           13. HOW TO BUY 
+           ============================================================ */
+        .how-head { text-align: center; margin-bottom: 80px; }
+        .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .step-card { 
+            background: var(--dark-card); padding: 45px 35px; border-radius: 40px; 
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border); 
+            position: relative; transition: 0.4s;
+        }
+        .step-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .step-num { 
+            width: 60px; height: 60px; background: var(--primary); 
+            color: #000; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; 
+            font-size: 1.8rem; font-weight: 900; margin-bottom: 25px; 
+        }
+        .step-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
+        .step-card p { font-size: 1rem; line-height: 1.6; }
+
+        /* ============================================================
+           14. LORE & TIMELINE 
+           ============================================================ */
+        .lore-timeline { position: relative; max-width: 1200px; margin: 0 auto; }
+        .lore-timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--border); transform: translateX(-50%); }
+        .time-block { width: 50%; padding: 40px; position: relative; margin-bottom: 60px; }
+        .t-left { left: 0; text-align: right; }
+        .t-right { left: 50%; text-align: left; }
+        .time-dot { width: 35px; height: 35px; background: var(--primary); border: 8px solid var(--dark); border-radius: 50%; position: absolute; top: 40px; z-index: 5; box-shadow: 0 0 25px var(--primary); }
+        .t-left .time-dot { right: -17.5px; }
+        .t-right .time-dot { left: -17.5px; }
+        .time-card { background: var(--dark-card); padding: 40px; border-radius: 40px; border: 1px solid var(--border); transition: 0.4s; }
+        .time-card:hover { border-color: var(--primary); }
+        .time-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.8rem; }
+
+        /* ============================================================
+           15. IMPERIAL COMMUNITY (SOCIALS)
+           ============================================================ */
+        .comm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .sc-link { 
+            background: var(--dark-card); padding: 70px 30px; border-radius: 45px; 
+            text-align: center; border: 1px solid var(--border); 
+            box-shadow: var(--shadow-sm); transition: 0.4s; overflow: hidden;
+        }
+        .sc-link:hover { transform: translateY(-15px); border-color: var(--primary); box-shadow: 0 0 30px rgba(0,255,127,0.1); }
+        .sc-link i { font-size: 4rem; margin-bottom: 25px; display: block; transition: 0.4s; }
+        .sc-link h4 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+        .sc-link span { font-weight: 700; color: #64748B; }
+        .sc-link:hover h4 { color: var(--primary); }
+
+        /* ============================================================
+           16. TEAM & ADVISORS
+           ============================================================ */
+        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .team-card { background: var(--dark-card); border-radius: 40px; overflow: hidden; border: 1px solid var(--border); transition: 0.4s; text-align: center; }
+        .team-card:hover { transform: scale(1.05); border-color: var(--primary); }
+        .team-pic { height: 280px; background: #111; overflow: hidden; }
+        .team-pic img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .team-card:hover .team-pic img { filter: grayscale(0%); }
+        .team-info { padding: 30px; }
+        .team-info h4 { font-size: 1.3rem; margin-bottom: 5px; }
+        .team-info p { color: var(--primary); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; }
+
+        /* ============================================================
+           17. GOVERNANCE & FAQ
+           ============================================================ */
+        .faq-wrap { max-width: 1000px; margin: 0 auto; }
+        .faq-item { background: var(--dark-card); border-radius: 25px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; transition: 0.3s; }
+        .faq-item:hover { border-color: var(--primary); }
+        .faq-q { padding: 30px 40px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 1.2rem; }
+        .faq-q i { font-size: 1.5rem; transition: 0.3s; color: var(--primary); }
+        .faq-a { padding: 0 40px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; color: #94A3B8; font-size: 1.1rem; }
+
+        /* ============================================================
+           18. MEGA FOOTER & LEGAL
+           ============================================================ */
+        footer { padding: 120px 8% 50px; background: #020202; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; margin-bottom: 100px; }
+        .f-col h3 { font-size: 2rem; margin-bottom: 30px; color: var(--primary); }
+        .f-col h5 { font-size: 1.1rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .f-col ul { list-style: none; }
+        .f-col li { margin-bottom: 15px; }
+        .f-col a { color: #64748B; font-weight: 600; font-size: 1rem; }
+        .f-col a:hover { color: var(--primary); padding-left: 10px; }
+        
+        .sub-form { display: flex; gap: 10px; margin-top: 20px; }
+        .sub-form input { flex: 1; padding: 15px 25px; border-radius: 15px; border: 1px solid var(--border); background: var(--dark); color: #fff; }
+        .btn-sub { background: var(--primary); color: #000; border: none; padding: 15px 30px; border-radius: 15px; font-weight: 800; cursor: pointer; }
+
+        .f-legal { padding-top: 50px; border-top: 1px solid var(--border); text-align: center; }
+        .f-legal p { font-size: 0.85rem; color: #475569; margin-bottom: 10px; }
+
+        /* ============================================================
+           19. LIGHTBOX SYSTEM 
+           ============================================================ */
+        #lightbox {
+            position: fixed; inset: 0; 
+            background: rgba(0,0,0,0.95); 
+            z-index: 10005; display: none; 
+            align-items: center; justify-content: center; 
+            padding: 50px;
+        }
+        #lightbox img { max-width: 100%; max-height: 85vh; border-radius: 40px; border: 2px solid var(--primary); }
+        .lb-close { position: absolute; top: 40px; right: 50px; font-size: 4rem; cursor: pointer; color: var(--primary); }
+
+        /* ============================================================
+           20. RESPONSIVE ENGINE & NAV FIXES
+           ============================================================ */
+        @media (max-width: 1280px) {
+            .hero-text h1 { font-size: 5rem; }
+            .track-card .val { font-size: 1.8rem; }
+            .t-wrap, .about-wrap, .calc-grid { grid-template-columns: 1fr; gap: 50px; }
+            .team-grid, .comm-grid, .how-grid, .tracker-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 900px) {
+            header { padding: 12px 25px; width: 95%; top: 55px; }
+            .nav-links, .header-action { display: none; }
+            .nav-links.active {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 5%;
+                width: 90%;
+                background: var(--dark-card);
+                padding: 40px;
+                border-radius: 30px;
+                border: 1px solid var(--primary);
+                z-index: 2000;
+                text-align: center;
+                gap: 20px;
+            }
+            .mob-menu-btn { display: block; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 4rem; }
+            .hero-main-img { width: 350px; height: 350px; }
+            .lore-timeline::before { left: 30px; }
+            .time-block { width: 100%; left: 0 !important; text-align: left !important; padding-left: 80px; }
+            .time-dot { left: 12.5px !important; }
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 { font-size: 3.2rem; }
+            .tracker-grid, .team-grid, .comm-grid, .how-grid { grid-template-columns: 1fr; }
+            .ca-field { flex-direction: column; }
+            .ca-field code { width: 100%; text-align: center; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div id="preloader">
+        <img src="peico1.jpg" alt="Loader" class="loader-logo">
+    </div>
+
+    <div class="top-ticker">
+        <div class="ticker-move">
+            <span>$PEICO INU - THE PEOPLES DARK EMPIRE</span>
+            <span>SOLANA ECOSYSTEM FASTEST GROWING MEME</span>
+            <span>100% LIQUIDITY BURNED FOREVER</span>
+            <span>JOIN THE PEICO PACK ON INSTAGRAM</span>
+            <span>$PEICO INU - THE PEOPLES DARK EMPIRE</span>
+            <span>SOLANA ECOSYSTEM FASTEST GROWING MEME</span>
+            <span>ZERO BUY/SELL TAX</span>
+        </div>
+    </div>
+
+    <header id="mainHeader">
+        <a href="#top" class="logo-wrap">
+            <img src="peico1.jpg" alt="Peico Logo">
+            <span>PEICO INU</span>
+        </a>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#top">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#tokenomics">ECONOMICS</a></li>
+                <li><a href="#roadmap">CONQUEST</a></li>
+                <li><a href="#community">SOCIALS</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+        <div class="header-action">
+            <a href="https://dexscreener.com/solana/j23e1av1atjzaqmdlekbhrfrvx8qs6zruovw1ttai2ke" class="btn-header" target="_blank">CHART</a>
+            <a href="https://pump.fun/coin/B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump" class="btn-header buy" target="_blank">BUY NOW</a>
+        </div>
+        <div class="mob-menu-btn" id="mobBtn">
+            <i class="fa-solid fa-bars fa-2x"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span style="font-weight:900; color:var(--primary); letter-spacing:5px; text-transform:uppercase;">Empowering Solana</span>
+                    <h1>Peico Inu <br><span>Empire.</span></h1>
+                    <p>The ultimate community-driven movement. No rugs, just pure imperial energy. Join the $PEICO revolution on the fastest chain.</p>
+                    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+                        <button class="btn-copy" style="padding:22px 55px; font-size:1.2rem; background:var(--primary); color:#000; border:none;" onclick="buy()">GET $PEICO</button>
+                        <a href="#community" class="btn-header" style="padding:22px 55px; font-size:1.2rem; border-radius:15px; display:flex; align-items:center;">THE PACK</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-badge b-top">🔥 100% BURNED</div>
+                    <div class="hero-badge b-bot">🚀 0% TAX</div>
+                    <img src="peico1.jpg" alt="Peico Mascot" class="hero-main-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="tracker-section">
+            <div class="tracker-grid">
+                <div class="track-card">
+                    <label>Current Price</label>
+                    <div class="val" id="p-sim">$0.0000421</div>
+                </div>
+                <div class="track-card">
+                    <label>Market Cap</label>
+                    <div class="val" id="m-sim">$1.5M</div>
+                </div>
+                <div class="track-card">
+                    <label>Total Holders</label>
+                    <div class="val">5,800+</div>
+                </div>
+                <div class="track-card">
+                    <label>Liquidity Status</label>
+                    <div class="val" style="color:var(--primary);">BURNED</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="calc-box">
+                <div class="calc-grid">
+                    <div class="calc-info">
+                        <h2 style="color:var(--primary); font-size:3.5rem; margin-bottom:20px;">Price <br>Impact Calc</h2>
+                        <p style="color:#94A3B8; font-size:1.3rem;">Calculate exactly how much $PEICO you'll receive for your SOL.</p>
+                    </div>
+                    <div class="calc-input-area">
+                        <div class="calc-group">
+                            <label>Amount in SOL</label>
+                            <input type="number" id="solInput" placeholder="0.00" oninput="calcPeico()">
+                        </div>
+                        <div class="calc-group">
+                            <label>Estimated $PEICO</label>
+                            <div class="calc-res" id="peicoRes">0.00</div>
+                        </div>
+                        <button class="btn-copy" style="width:100%; margin-top:10px;" onclick="buy()">BUY ON PUMP.FUN</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-wrap">
+                <div class="about-img">
+                    <img src="peico1.jpg" alt="Peico Philosophy">
+                </div>
+                <div class="about-content">
+                    <span style="font-weight:900; color:var(--primary); text-transform:uppercase;">The Movement</span>
+                    <h2>Loyalty over <span>Everything.</span></h2>
+                    <p>Peico Inu is more than a coin; it's a culture. We are building a digital empire on Solana where transparency and community come first.</p>
+                    <div class="feature-grid">
+                        <div class="f-item">
+                            <i style="color:var(--primary);" class="fa-solid fa-fire"></i>
+                            <h4 style="margin-bottom:10px;">LP Burned</h4>
+                            <p style="font-size:0.9rem;">Liquidity keys are destroyed forever. Rug-proof by design.</p>
+                        </div>
+                        <div class="f-item">
+                            <i style="color:var(--primary);" class="fa-solid fa-gem"></i>
+                            <h4 style="margin-bottom:10px;">0% Tax</h4>
+                            <p style="font-size:0.9rem;">No hidden fees. Pure peer-to-peer value exchange.</p>
+                        </div>
+                        <div class="f-item">
+                            <i style="color:var(--primary);" class="fa-solid fa-shield-halved"></i>
+                            <h4 style="margin-bottom:10px;">Renounced</h4>
+                            <p style="font-size:0.9rem;">Contract ownership revoked. The community owns $PEICO.</p>
+                        </div>
+                        <div class="f-item">
+                            <i style="color:var(--primary);" class="fa-solid fa-rocket"></i>
+                            <h4 style="margin-bottom:10px;">Viral Growth</h4>
+                            <p style="font-size:0.9rem;">Powered by global raiding and relentless marketing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="vault-head">
+                <h2>The <span>Meme</span> Vault</h2>
+                <p>High-quality imperial assets for our raiders.</p>
+            </div>
+            <div class="vault-grid">
+                <div class="v-card" onclick="openLightbox(this)"><img src="peico1.jpg" alt="1"><div class="v-overlay"><h4>The Emperor</h4></div></div>
+                <div class="v-card" onclick="openLightbox(this)"><img src="peico1.jpg" alt="2"><div class="v-overlay"><h4>Solana Raid</h4></div></div>
+                <div class="v-card" onclick="openLightbox(this)"><img src="peico1.jpg" alt="3"><div class="v-overlay"><h4>Green Wall</h4></div></div>
+                <div class="v-card" onclick="openLightbox(this)"><img src="peico1.jpg" alt="4"><div class="v-overlay"><h4>Moon Bound</h4></div></div>
+                <div class="v-card" onclick="openLightbox(this)"><img src="peico1.jpg" alt="5"><div class="v-overlay"><h4>Pack Power</h4></div></div>
+                <div class="v-card" onclick="openLightbox(this)"><img src="peico1.jpg" alt="6"><div class="v-overlay"><h4>Dark Neon</h4></div></div>
+            </div>
+        </section>
+
+        <section id="tokenomics" class="tokenomics">
+            <div style="text-align:center; margin-bottom:80px;">
+                <h2 style="font-size:3.5rem;">Peiconomics</h2>
+                <p>Transparent mathematics for long-term growth.</p>
+            </div>
+            <div class="t-wrap">
+                <div class="t-data">
+                    <div class="t-row"><span>Total Supply</span><span>1,000,000,000</span></div>
+                    <div class="t-row"><span>Ticker</span><span>$PEICO</span></div>
+                    <div class="t-row"><span>Tax (Buy/Sell)</span><span>0%</span></div>
+                    <div class="t-row"><span>Liquidity</span><span>100% BURNED</span></div>
+                    <div class="t-row"><span>Mint Authority</span><span>REVOKED</span></div>
+                    <div class="t-row"><span>Safety Scan</span><span>PASSED ✅</span></div>
+                </div>
+                <div class="t-chart">
+                    <div class="t-bar" data-h="90" style="height:90%;"><span>90% Comm</span><label>Liquidity</label></div>
+                    <div class="t-bar" data-h="5" style="height:15%; background:#1E293B;"><span>5% Mark</span><label>Marketing</label></div>
+                    <div class="t-bar" data-h="4" style="height:10%; background:#0F172A;"><span>4% Eco</span><label>Future</label></div>
+                    <div class="t-bar" data-h="1" style="height:5%; background:#fff;"><span>1% Team</span><label>Devs</label></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="ca-banner">
+                <h2>Official Smart Contract</h2>
+                <div class="ca-field">
+                    <code id="caVal">B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump</code>
+                    <button class="btn-copy" onclick="copyCA()">COPY CA</button>
+                </div>
+                <div style="margin-top:50px; display:flex; gap:30px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://solscan.io/token/B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump" target="_blank" style="color:var(--primary); font-weight:800; border-bottom:2px solid var(--primary);">SOLSCAN</a>
+                    <a href="https://dexscreener.com/solana/j23e1av1atjzaqmdlekbhrfrvx8qs6zruovw1ttai2ke" target="_blank" style="color:var(--primary); font-weight:800; border-bottom:2px solid var(--primary);">DEXTOOLS</a>
+                    <a href="https://raydium.io/swap/?inputMint=sol&outputMint=B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump" target="_blank" style="color:var(--primary); font-weight:800; border-bottom:2px solid var(--primary);">RAYDIUM</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <div style="text-align:center; margin-bottom:100px;">
+                <h2 style="font-size:3.5rem;">The <span>Conquest</span> Map</h2>
+            </div>
+            <div class="lore-timeline">
+                <div class="time-block t-left">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 1: GENESIS</h3>
+                        <p>Stealth Launch on Pump.fun. Website deployment. 1,000+ Imperial holders. Social media blitz.</p>
+                    </div>
+                </div>
+                <div class="time-block t-right">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 2: VIRAL STRIKE</h3>
+                        <p>Instagram & X raids. DexScreener trending. CoinGecko/CMC listings. 5,000+ pack members.</p>
+                    </div>
+                </div>
+                <div class="time-block t-left">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 3: DOMINATION</h3>
+                        <p>CEX Tier-2 Listings. Official $PEICO Merch. Massive global marketing campaigns.</p>
+                    </div>
+                </div>
+                <div class="time-block t-right">
+                    <div class="time-dot"></div>
+                    <div class="time-card">
+                        <h3>PHASE 4: MOON EMPIRE</h3>
+                        <p>Tier-1 Exchange Listings. 100k+ Holders. Global Pack meetups. Ecosystem expansion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community">
+            <div style="text-align:center; margin-bottom:80px;">
+                <h2 style="font-size:3.5rem;">Join the <span>Imperial Pack</span></h2>
+            </div>
+            <div class="comm-grid">
+                <a href="https://t.me/Peico_Inu" target="_blank" class="sc-link">
+                    <i style="color:#229ED9;" class="fa-brands fa-telegram"></i>
+                    <h4>Telegram</h4>
+                    <span>Join Discussion</span>
+                </a>
+                <a href="https://x.com/PEICOAI" target="_blank" class="sc-link">
+                    <i style="color:#fff;" class="fa-brands fa-x-twitter"></i>
+                    <h4>Twitter / X</h4>
+                    <span>Official News</span>
+                </a>
+                <a href="https://www.instagram.com/peicoinu_sol/" target="_blank" class="sc-link">
+                    <i style="color:#E4405F;" class="fa-brands fa-instagram"></i>
+                    <h4>Instagram</h4>
+                    <span>Daily Vibes</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="faq-wrap">
+                <h2 style="font-size:3.5rem; text-align:center; margin-bottom:60px;">F.A.Q</h2>
+                <div class="faq-item">
+                    <div class="faq-q">What is Peico Inu? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-a"><p>Peico Inu is a decentralized community project on the Solana blockchain. We are building a cultural brand through memes and community-driven energy.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is the liquidity safe? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-a"><p>Yes, 100% of the LP tokens were burned at launch. No one can pull the liquidity. Rug-proof by design.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Why Solana? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-a"><p>Solana provides lightning-fast speeds and ultra-low fees, making it the perfect playground for the next generation of meme giants.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="f-col">
+                <h3>PEICO INU 🐶💚</h3>
+                <p>The Dark Emperor of Solana Memes. Building a legacy of loyalty, vibes, and green candles.</p>
+                <form class="sub-form" onsubmit="event.preventDefault(); alert('Subscribed!')">
+                    <input type="email" placeholder="Email for raids">
+                    <button class="btn-sub">JOIN</button>
+                </form>
+            </div>
+            <div class="f-col">
+                <h5>EMPIRE</h5>
+                <ul>
+                    <li><a href="#top">Hero</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tokenomics">Economics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h5>UTILITIES</h5>
+                <ul>
+                    <li><a href="https://solscan.io/token/B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump">Solscan</a></li>
+                    <li><a href="https://dexscreener.com/solana/j23e1av1atjzaqmdlekbhrfrvx8qs6zruovw1ttai2ke">DexScreener</a></li>
+                    <li><a href="https://raydium.io/swap/?inputMint=sol&outputMint=B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump">Raydium</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h5>SOCIALS</h5>
+                <ul>
+                    <li><a href="https://t.me/Peico_Inu">Telegram</a></li>
+                    <li><a href="https://x.com/PEICOAI">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/peicoinu_sol/">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="f-legal">
+            <p><b>DISCLAIMER:</b> $PEICO is a meme coin for entertainment. No financial return is promised. DYOR.</p>
+            <p>&copy; 2026 Peico Inu Empire. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" onclick="this.style.display='none'">
+        <span class="lb-close">&times;</span>
+        <img src="" id="lbImg">
+    </div>
+
+    <script>
+        // 1. PRELOADER
+        window.addEventListener('load', () => {
+            const pre = document.getElementById('preloader');
+            setTimeout(() => {
+                pre.style.opacity = '0';
+                setTimeout(() => pre.style.display = 'none', 1000);
+            }, 1200);
+        });
+
+        // 2. STICKY HEADER
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if(window.scrollY > 80) { header.classList.add('scrolled'); } 
+            else { header.classList.remove('scrolled'); }
+        });
+
+        // 3. CALCULATOR
+        function calcPeico() {
+            const sol = document.getElementById('solInput').value;
+            const res = document.getElementById('peicoRes');
+            if(sol > 0) {
+                res.innerText = (sol * 5250000).toLocaleString() + " $PEICO";
+            } else { res.innerText = "0.00"; }
+        }
+
+        // 4. STATS SIM
+        let mc = 1500000;
+        setInterval(() => {
+            mc += (Math.random() * 2000) - 500;
+            document.getElementById('m-sim').innerText = '$' + (mc/1000000).toFixed(2) + 'M';
+        }, 3000);
+
+        // 5. COPY CA
+        function copyCA() {
+            const val = document.getElementById('caVal').innerText;
+            navigator.clipboard.writeText(val);
+            const btn = document.querySelector('.btn-copy');
+            btn.innerText = "COPIED!";
+            setTimeout(() => btn.innerText = "COPY CA", 2000);
+        }
+
+        // 6. FAQ
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const a = q.nextElementSibling;
+                const icon = q.querySelector('i');
+                const isOpen = a.style.maxHeight !== '0px' && a.style.maxHeight !== '';
+                
+                document.querySelectorAll('.faq-a').forEach(ans => ans.style.maxHeight = '0px');
+                document.querySelectorAll('.faq-q i').forEach(i => i.className = 'fa-solid fa-plus');
+
+                if(!isOpen) { 
+                    a.style.maxHeight = '300px'; 
+                    icon.className = 'fa-solid fa-minus';
+                }
+            });
+        });
+
+        // 7. LIGHTBOX
+        function openLightbox(el) {
+            const src = el.querySelector('img').src;
+            document.getElementById('lbImg').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        // 8. MOBILE MENU FIX
+        const mobBtn = document.getElementById('mobBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobBtn.onclick = function() {
+            navLinks.classList.toggle('active');
+            const icon = mobBtn.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark fa-2x';
+            } else {
+                icon.className = 'fa-solid fa-bars fa-2x';
+            }
+        };
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.onclick = () => {
+                navLinks.classList.remove('active');
+                mobBtn.querySelector('i').className = 'fa-solid fa-bars fa-2x';
+            };
+        });
+
+        function buy() { window.open("https://pump.fun/coin/B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump", "_blank"); }
+    </script>
+</body>
+</html>
+
