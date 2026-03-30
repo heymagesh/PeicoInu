@@ -879,6 +879,40 @@
             lb.style.display = 'flex';
         }
 
+        // LIVE PRICE (DEXSCREENER)
+const CA = "B9viSKqxavs7d1tyFiteX8wLkaMzuYhah5gzFMh3pump";
+
+async function updatePrice() {
+    try {
+        const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${CA}`);
+        const data = await res.json();
+
+        if (!data.pairs || data.pairs.length === 0) {
+            console.log("No pairs found");
+            return;
+        }
+
+        // best pair select
+        const pair = data.pairs.find(p => p.priceUsd) || data.pairs[0];
+
+        const price = Number(pair.priceUsd || 0);
+        const mcap = Number(pair.fdv || pair.marketCap || 0);
+
+        document.getElementById("priceSim").innerText =
+            "$" + price.toFixed(8);
+
+        document.getElementById("mcapSim").innerText =
+            "$" + mcap.toLocaleString();
+
+    } catch (e) {
+        console.log("DEX ERROR:", e);
+    }
+}
+
+// run
+updatePrice();
+setInterval(updatePrice, 5000);
+
         // Copy Contract address
         function copyCA() {
             const ca = document.getElementById('caStr').innerText;
